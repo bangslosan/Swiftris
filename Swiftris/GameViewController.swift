@@ -9,52 +9,33 @@
 import UIKit
 import SpriteKit
 
-extension SKNode {
-    class func unarchiveFromFile(file : String) -> SKNode? {
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
-            var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
-            var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
-            
-            archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
-            archiver.finishDecoding()
-            return scene
-        } else {
-            return nil
-        }
-    }
-}
-
 class GameViewController: UIViewController {
 
+    var scene: GameScene!
+    var swiftris: Swiftris!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let skView = view as! SKView
+        skView.multipleTouchEnabled = false
+        
+        scene = GameScene(size: skView.bounds.size)
+        scene.scaleMode = .AspectFill
+        
+        scene.tick = didTick
+        swiftris = Swiftris()
+        swiftris.beginGame()
+        
+        skView.presentScene(scene)
 
-        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene)
-        }
-    }
-
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-
-    override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
-        } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+        scene.addPreviewShapeToScene(swiftris.nextShape!) {
+            self.swiftris.nextShape?.moveTo(StartingColumn, row: StartingRow)
+            self.scene.movePreviewShape(self.swiftris.nextShape!) {
+                let nextShapes = self.swiftris.newShape()
+                self.scene.startTicking()
+                self.scene.addPreviewShapeToScene(nextShapes.nextShape!) {}
+            }
         }
     }
 
@@ -65,5 +46,10 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func didTick() {
+        swiftris.fallingShape?.lowerShapeByOneRow()
+        scene.redrawShape(swiftris.fallingShape!, completion: {})
     }
 }
