@@ -6,6 +6,16 @@
 //  Copyright (c) 2015 FSGBU. All rights reserved.
 //
 
+/*
+
+| 0•| 1 |
+| 2 | 3 |
+
+• marks the row/column indicator for the shape
+
+*/
+
+// The square shape will not rotate
 
 class SquareShape: Shape {
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
@@ -27,6 +37,33 @@ class SquareShape: Shape {
     }
 }
 
+/*
+Orientation 0
+
+  • | 0 |
+| 1 | 2 | 3 |
+
+Orientation 90
+
+• | 1 |
+  | 2 | 0 |
+  | 3 |
+
+Orientation 180
+
+  •
+| 1 | 2 | 3 |
+    | 0 |
+
+Orientation 270
+
+  • | 1 |
+| 0 | 2 |
+    | 3 |
+
+• marks the row/column indicator for the shape
+
+*/
 class TShape: Shape {
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [
@@ -46,6 +83,26 @@ class TShape: Shape {
         ]
     }
 }
+
+/*
+
+seems the same shape has the same color
+Orientations 0 and 180:
+
+| 0•|
+| 1 |
+| 2 |
+| 3 |
+
+Orientations 90 and 270:
+
+| 0 | 1•| 2 | 3 |
+
+• marks the row/column indicator for the shape
+
+*/
+
+// Hinges about the second block
 
 class LineShape: Shape {
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
@@ -67,7 +124,38 @@ class LineShape: Shape {
     }
 }
 
+/*
+
+Orientation 0
+
+| 0•|
+| 1 |
+| 2 | 3 |
+
+Orientation 90
+
+      •
+| 2 | 1 | 0 |
+| 3 |
+
+Orientation 180
+
+| 3 | 2•|
+    | 1 |
+    | 0 |
+
+Orientation 270
+
+      • | 3 |
+| 0 | 1 | 2 |
+
+• marks the row/column indicator for the shape
+
+Pivots about `1`
+
+*/
 class LShape: Shape {
+    
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [
             Orientation.Zero:       [ (0, 0), (0, 1),  (0, 2),  (1, 2)],
@@ -86,6 +174,36 @@ class LShape: Shape {
         ]
     }
 }
+
+/*
+
+Orientation 0
+
+  • | 0 |
+    | 1 |
+| 3 | 2 |
+
+Orientation 90
+
+| 3•|
+| 2 | 1 | 0 |
+
+Orientation 180
+
+| 2•| 3 |
+| 1 |
+| 0 |
+
+Orientation 270
+
+| 0•| 1 | 2 |
+        | 3 |
+
+• marks the row/column indicator for the shape
+
+Pivots about `1`
+
+*/
 
 class JShape: Shape {
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
@@ -107,6 +225,34 @@ class JShape: Shape {
     }
 }
 
+/*
+
+Orientation 0
+
+| 0•|
+| 1 | 2 |
+    | 3 |
+
+Orientation 90
+
+  • | 1 | 0 |
+| 3 | 2 |
+
+Orientation 180
+
+| 0•|
+| 1 | 2 |
+    | 3 |
+
+Orientation 270
+
+  • | 1 | 0 |
+| 3 | 2 |
+
+• marks the row/column indicator for the shape
+
+*/
+
 class SShape: Shape {
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [
@@ -126,6 +272,35 @@ class SShape: Shape {
         ]
     }
 }
+
+/*
+
+Orientation 0
+
+  • | 0 |
+| 2 | 1 |
+| 3 |
+
+Orientation 90
+
+| 0 | 1•|
+    | 2 | 3 |
+
+Orientation 180
+
+  • | 0 |
+| 2 | 1 |
+| 3 |
+
+Orientation 270
+
+| 0 | 1•|
+    | 2 | 3 |
+
+
+• marks the row/column indicator for the shape
+
+*/
 
 class ZShape: Shape {
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {

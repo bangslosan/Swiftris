@@ -23,8 +23,7 @@
 		DA9CE64E1B57CC920006B438 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE64D1B57CC920006B438 /* Array2D.swift */; };
 		DA9CE6501B57D1090006B438 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE64F1B57D1090006B438 /* Block.swift */; };
 		DA9CE6521B57D4DA0006B438 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE6511B57D4DA0006B438 /* Shape.swift */; };
-		DA9CE6541B57DB810006B438 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE6531B57DB810006B438 /* SquareShape.swift */; };
-		DA9CE6581B57DD380006B438 /* SubClassOfShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE6571B57DD380006B438 /* SubClassOfShape.swift */; };
+		DA9CE6581B57DD380006B438 /* SubClassesOfShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE6571B57DD380006B438 /* SubClassesOfShape.swift */; };
 		DA9CE65A1B57E0870006B438 /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE6591B57E0870006B438 /* Swiftris.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,8 +58,7 @@
 		DA9CE64D1B57CC920006B438 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		DA9CE64F1B57D1090006B438 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		DA9CE6511B57D4DA0006B438 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
-		DA9CE6531B57DB810006B438 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
-		DA9CE6571B57DD380006B438 /* SubClassOfShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubClassOfShape.swift; sourceTree = "<group>"; };
+		DA9CE6571B57DD380006B438 /* SubClassesOfShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubClassesOfShape.swift; sourceTree = "<group>"; };
 		DA9CE6591B57E0870006B438 /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,14 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				DA73F3901B57C04200E4CAC6 /* AppDelegate.swift */,
+				DA73F3961B57C04200E4CAC6 /* GameViewController.swift */,
 				DA73F3941B57C04200E4CAC6 /* GameScene.swift */,
+				DA9CE64D1B57CC920006B438 /* Array2D.swift */,
 				DA9CE64F1B57D1090006B438 /* Block.swift */,
 				DA9CE6511B57D4DA0006B438 /* Shape.swift */,
-				DA9CE6531B57DB810006B438 /* SquareShape.swift */,
+				DA9CE6571B57DD380006B438 /* SubClassesOfShape.swift */,
 				DA9CE6591B57E0870006B438 /* Swiftris.swift */,
-				DA9CE6571B57DD380006B438 /* SubClassOfShape.swift */,
-				DA73F3961B57C04200E4CAC6 /* GameViewController.swift */,
-				DA9CE64D1B57CC920006B438 /* Array2D.swift */,
 				DA73F3981B57C04200E4CAC6 /* Main.storyboard */,
 				DA73F39B1B57C04200E4CAC6 /* Images.xcassets */,
 				DA73F39D1B57C04200E4CAC6 /* LaunchScreen.xib */,
@@ -265,8 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA9CE6581B57DD380006B438 /* SubClassOfShape.swift in Sources */,
-				DA9CE6541B57DB810006B438 /* SquareShape.swift in Sources */,
+				DA9CE6581B57DD380006B438 /* SubClassesOfShape.swift in Sources */,
 				DA73F3951B57C04200E4CAC6 /* GameScene.swift in Sources */,
 				DA9CE6521B57D4DA0006B438 /* Shape.swift in Sources */,
 				DA9CE64E1B57CC920006B438 /* Array2D.swift in Sources */,
@@ -351,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -389,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

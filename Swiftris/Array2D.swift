@@ -21,11 +21,11 @@ class Array2D<T> {
     
     subscript(column: Int, row: Int) -> T? {
         get {
-            return array[(rows * columns) + columns]
+            return array[(row * column) + column]
         }
         
         set(newValue) {
-            array[(rows * columns) + columns] = newValue
+            array[(row * column) + column] = newValue
         }
     }
 }

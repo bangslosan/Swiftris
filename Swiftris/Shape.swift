@@ -44,6 +44,7 @@ enum Orientation: Int, Printable {
 
 let NumShapeTypes: UInt32 = 7
 
+//Default shape include maximize 4 blocks
 let FirstBlockIdx: Int = 0
 let SecondBlockIdx: Int = 1
 let ThirdBlockIdx: Int = 2
@@ -58,6 +59,8 @@ class Shape: Hashable, Printable {
     
     var column, row: Int
     
+    //Dictionary store a tuple array
+    //columnDiff & rowDiff is difference with base column & row
     var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [:]
     }
@@ -73,6 +76,8 @@ class Shape: Hashable, Printable {
         return []
     }
     
+    //iterate through our entire blocks array
+    //exclusively-or each block's hashValue together to create a single hashValue for the shape
     var hashValue: Int {
         return reduce(blocks, 0) {$0.hashValue ^ $1.hashValue}
     }
@@ -113,6 +118,18 @@ class Shape: Hashable, Printable {
         }
     }
     
+    final func rotateClockwise() {
+        let newOrientation = Orientation.rotate(orientation, clockwise: true)
+        rotateBlocks(newOrientation)
+        orientation = newOrientation
+    }
+    
+    final func rotateCounterClockwise() {
+        let newOrientation = Orientation.rotate(orientation, clockwise: false)
+        rotateBlocks(newOrientation)
+        orientation = newOrientation
+    }
+    
     final func lowerShapeByOneRow() {
         shiftBy(0, rows: 1)
     }
@@ -124,6 +141,18 @@ class Shape: Hashable, Printable {
             block.column += columns
             block.row += rows
         }
+    }
+    
+    final func raiseShapeByOneRow() {
+        shiftBy(0, rows:-1)
+    }
+    
+    final func shiftRightByOneColumn() {
+        shiftBy(1, rows:0)
+    }
+    
+    final func shiftLeftByOneColumn() {
+        shiftBy(-1, rows:0)
     }
     
     final func moveTo(column: Int, row: Int) {
